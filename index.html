@@ -30,18 +30,13 @@
 
 		function FindUserNums(){
 			var userNums = new Array;
-			var parsedInput;
 			var userInput1 = document.getElementById('regular').value;
 			var userInput2 = document.getElementById('lucky').value;
-			// Having trouble parsing the first textbox user input
-			for (var i = 0; i < 5; i++){
-				// This Line Is Where I Need Help
-				parsedInput = userInput.substring(i, 1);
-				// ^ ^ ^ ^ ^
-				userNums.push(parsedInput);
-				alert("Array: " + userNums[i]);
-			}
+			userNums = userInput1.split(' ');
 			userNums.push(userInput2);
+			for (var i = 0; i < userNums.length; i++){
+				alert("Number: " + userNums[i]);
+			}
 			return userNums;
 		}
 
@@ -49,24 +44,24 @@
 		var myRandNums = new Array;
 		var userNums = new Array;
 		myRandNums = FindMyNums();
-		//    test for if FindMyNums is working
-		// for (var i = 0; i < myRandNums.length; i++){
-		// 	alert("Number: " + myRandNums[i]);
-		// }
+		   test for if FindMyNums is working
+		for (var i = 0; i < myRandNums.length; i++){
+			alert("Number: " + myRandNums[i]);
+		}
 		myRandNums.sort();
-		//    test for if sort is working
-		// for (var i = 0; i < myRandNums.length; i++){
-		// 	alert("Number: " + myRandNums[i]);
-		// }
+		   test for if sort is working
+		for (var i = 0; i < myRandNums.length; i++){
+			alert("Number: " + myRandNums[i]);
+		}
 		userNums = FindUserNums();
-		//    test for if FindUserNums is working
-		// for (var i = 0; i < userNums.length; i++){
-		// 	alert("Number: " + userNums[i]);
-		// }
+		   test for if FindUserNums is working
+		for (var i = 0; i < userNums.length; i++){
+			alert("Number: " + userNums[i]);
+		}
 		userNums.sort();
-		//    test for if sort is working
-		// for (var i = 0; i < userNums.length; i++){
-		// 	alert("Number: " + userNums[i]);
+		   test for if sort is working
+		for (var i = 0; i < userNums.length; i++){
+			alert("Number: " + userNums[i]);
 		var regMatch = 0, luckyMatch = 0;
 		for (var i = 0; i < 5; i++){
 			if (myRandNums[i] == userNums[i]){
@@ -107,7 +102,6 @@
 		else if ((regMatch == 0) and (luckyMatch == 1)){
 			payout = "$4";
 		}
-
 
 	</script>
 </body>
