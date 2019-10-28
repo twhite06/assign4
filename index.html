@@ -11,10 +11,10 @@
 		First Numbers: <br>
 		<input type= "text" name= "first number" id= "regular">
 		<br><br>
-		Lucky Ball Numbers: <br>
-		<input type= "number" name= "lucky ball number" id= "lucky">
+		Lucky Ball Number: <br>
+		<input type= "text" name= "lucky ball number" id= "lucky">
 		<br><br>
-		<button onclick= "FindUserNums()">Let's Play!</button>
+		<button onclick= "MainFunction()">Let's Play!</button>
 	</form>
 	<script language="javascript">
 		function FindMyNums() {
@@ -34,74 +34,134 @@
 			var userInput2 = document.getElementById('lucky').value;
 			userNums = userInput1.split(' ');
 			userNums.push(userInput2);
-			for (var i = 0; i < userNums.length; i++){
-				alert("Number: " + userNums[i]);
-			}
 			return userNums;
 		}
 
-
-		var myRandNums = new Array;
-		var userNums = new Array;
-		myRandNums = FindMyNums();
-		   test for if FindMyNums is working
-		for (var i = 0; i < myRandNums.length; i++){
-			alert("Number: " + myRandNums[i]);
-		}
-		myRandNums.sort();
-		   test for if sort is working
-		for (var i = 0; i < myRandNums.length; i++){
-			alert("Number: " + myRandNums[i]);
-		}
-		userNums = FindUserNums();
-		   test for if FindUserNums is working
-		for (var i = 0; i < userNums.length; i++){
-			alert("Number: " + userNums[i]);
-		}
-		userNums.sort();
-		   test for if sort is working
-		for (var i = 0; i < userNums.length; i++){
-			alert("Number: " + userNums[i]);
-		var regMatch = 0, luckyMatch = 0;
-		for (var i = 0; i < 5; i++){
-			if (myRandNums[i] == userNums[i]){
-				regMatch++;
+		function MainFunction(){
+			var myRandNums = new Array;
+			var userNums = new Array;
+			myRandNums = FindMyNums();
+			myRandNums.sort();
+			userNums = FindUserNums();
+			userNums.sort();
+			var regMatch = 0, luckyMatch = 0;
+			var payout = "No Payout! ";
+			for (var i = 0; i < 5; i++){
+				if (myRandNums[i] == userNums[i])
+					regMatch++;
 			}
+			if (myRandNums[5] = userNums[5]){
+				luckyMatch++;
+			}
+			if ((regMatch == 5) && (luckyMatch == 1)){
+				payout = "$7,000 a WEEK for LIFE!";
+			}
+			else if ((regMatch == 5) && (luckyMatch == 0)){
+				payout = "$25,000 a YEAR for LIFE!";
+			}
+			else if ((regMatch == 4) && (luckyMatch == 1)){
+				payout = "$5,000";
+			}
+			else if ((regMatch == 4) && (luckyMatch == 0)){
+				payout = "$200";
+			}
+			else if ((regMatch == 3) && (luckyMatch == 1)){
+				payout = "$150";
+			}
+			else if ((regMatch == 3) && (luckyMatch == 0)){
+				payout = "$20";
+			}
+			else if ((regMatch == 2) && (luckyMatch == 1)){
+				payout = "$25";
+			}
+			else if ((regMatch == 2) && (luckyMatch == 0)){
+				payout = "$3";
+			}
+			else if ((regMatch == 1) && (luckyMatch == 1)){
+				payout = "$6";
+			}
+			else if ((regMatch == 0) && (luckyMatch == 1)){
+				payout = "$4";
+			}
+
+			alert("Your payout = " + payout);
 		}
-		if (myRandNums[5] = userNums[5]){
-			luckyMatch++;
-		}
-		var payout = "No Payout! ";
-		if ((regMatch == 5) and (luckyMatch == 1)){
-			payout = "$7,000 a WEEK for LIFE!";
-		}
-		else if ((regMatch == 5) and (luckyMatch == 0)){
-			payout = "$25,000 a YEAR for LIFE!";
-		}
-		else if ((regMatch == 4) and (luckyMatch == 1)){
-			payout = "$5,000";
-		}
-		else if ((regMatch == 4) and (luckyMatch == 0)){
-			payout = "$200";
-		}
-		else if ((regMatch == 3) and (luckyMatch == 1)){
-			payout = "$150";
-		}
-		else if ((regMatch == 3) and (luckyMatch == 0)){
-			payout = "$20";
-		}
-		else if ((regMatch == 2) and (luckyMatch == 1)){
-			payout = "$25";
-		}
-		else if ((regMatch == 2) and (luckyMatch == 0)){
-			payout = "$3";
-		}
-		else if ((regMatch == 1) and (luckyMatch == 1)){
-			payout = "$6";
-		}
-		else if ((regMatch == 0) and (luckyMatch == 1)){
-			payout = "$4";
-		}
+
+
+		// var myRandNums = new Array;
+		// var userNums = new Array;
+		// myRandNums = FindMyNums();
+		//    // test for if FindMyNums is working
+		// for (var i = 0; i < myRandNums.length; i++){
+		// 	alert("Number: " + myRandNums[i]);
+		// }
+		
+		// myRandNums.sort();
+		//    // test for if sort is working
+		// for (var i = 0; i < myRandNums.length; i++){
+		// 	alert("Number: " + myRandNums[i]);
+		// }
+		
+		// userNums = FindUserNums();
+		//    // test for if FindUserNums is working
+		// // for (var i = 0; i < userNums.length; i++){
+		// // 	alert("Number: " + userNums[i]);
+		// // }
+		
+		// userNums.sort();
+		// //    test for if sort is working
+		// // for (var i = 0; i < userNums.length; i++){
+		// // 	alert("Number: " + userNums[i]);
+		// // }
+		
+		// var regMatch = 0, luckyMatch = 0;
+		// for (var i = 0; i < 5; i++){
+		// 	if (myRandNums[i] == userNums[i]){
+		// 		regMatch++;
+		// 	}
+		// }
+		// //    test for if there is a match
+		// // alert("regMatch = " regMatch);
+		
+		// if (myRandNums[5] = userNums[5]){
+		// 	luckyMatch++;
+		// }
+		// //    test for if there is a lucky match
+		// // alert("luckyMatch = " luckyMatch);
+
+		// var payout = "No Payout! ";
+		// if ((regMatch == 5) && (luckyMatch == 1)){
+		// 	payout = "$7,000 a WEEK for LIFE!";
+		// }
+		// else if ((regMatch == 5) && (luckyMatch == 0)){
+		// 	payout = "$25,000 a YEAR for LIFE!";
+		// }
+		// else if ((regMatch == 4) && (luckyMatch == 1)){
+		// 	payout = "$5,000";
+		// }
+		// else if ((regMatch == 4) && (luckyMatch == 0)){
+		// 	payout = "$200";
+		// }
+		// else if ((regMatch == 3) && (luckyMatch == 1)){
+		// 	payout = "$150";
+		// }
+		// else if ((regMatch == 3) && (luckyMatch == 0)){
+		// 	payout = "$20";
+		// }
+		// else if ((regMatch == 2) && (luckyMatch == 1)){
+		// 	payout = "$25";
+		// }
+		// else if ((regMatch == 2) && (luckyMatch == 0)){
+		// 	payout = "$3";
+		// }
+		// else if ((regMatch == 1) && (luckyMatch == 1)){
+		// 	payout = "$6";
+		// }
+		// else if ((regMatch == 0) && (luckyMatch == 1)){
+		// 	payout = "$4";
+		// }
+
+		// alert("Your payout = " + payout);
 
 	</script>
 </body>
