@@ -8,7 +8,7 @@
 
 <body>
 
-<!-- 	<form> -->
+	<form>
 		How Many Hot Dogs? <br>
 		<input type= "number" name= "Number of hot dogs" id= "HotDogs">
 		<br><br>
@@ -19,7 +19,7 @@
 		<input type= "number" name= "Number of drinks" id= "Drinks">
 		<br><br>
 		<button onclick= "OrderFood()">Order!</button>
-<!-- 	</form> -->
+	</form>
 
 	<script language="javascript">
 
@@ -36,7 +36,11 @@
 			for (var key in itemQuant){
 				total += itemPrice[key] * itemQuant[key];
 			}
-			
+			if (total >= 20){
+				total -= total * .10;
+			}
+			var finalprice = total + (total * 0.0625);
+			alert("Your Total Is: $" + finalprice.toFixed(2));
 		}
 	</script>
 
