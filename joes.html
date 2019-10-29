@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title> Joe's HD </title>
+</head>
+
+<body>
+
+<!-- 	<form> -->
+		How Many Hot Dogs? <br>
+		<input type= "number" name= "Number of hot dogs" id= "HotDogs">
+		<br><br>
+		How Many Fries? <br>
+		<input type= "number" name= "Number of fries" id= "FrenchFries">
+		<br><br>
+		How Many Drinks? <br>
+		<input type= "number" name= "Number of drinks" id= "Drinks">
+		<br><br>
+		<button onclick= "OrderFood()">Order!</button>
+<!-- 	</form> -->
+
+	<script language="javascript">
+
+		function OrderFood(){
+			var itemPrice = new Array, itemQuant = new Array;
+			itemPrice = {HotDogs: "3.25", FrenchFries: "2.00", Drinks: "1.50"};
+			itemQuant = {HotDogs: "0", FrenchFries: "0", Drinks: "0"};
+			for (var key in itemQuant){
+				var number = document.getElementById(key).value;
+				itemQuant[key] = number;
+			}
+			// console.log(itemQuant);
+			var total = 0;
+			for (var key in itemQuant){
+				total += itemPrice[key] * itemQuant[key];
+			}
+			
+		}
+	</script>
+
+</body>
+
+</html>
