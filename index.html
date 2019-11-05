@@ -41,9 +41,9 @@
 			var myRandNums = new Array;
 			var userNums = new Array;
 			myRandNums = FindMyNums();
-			myRandNums.sort();
+			myRandNums.sort(function(a, b) {return a - b});
 			userNums = FindUserNums();
-			userNums.sort();
+			userNums.sort(function(a, b) {return a - b});
 			var regMatch = 0, luckyMatch = 0;
 			var payout = "No Payout! ";
 			for (var i = 0; i < 5; i++){
